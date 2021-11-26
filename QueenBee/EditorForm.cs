@@ -39,6 +39,7 @@ namespace Nanook.QueenBee
             _formats.Add("XBox (xbx)", PakFormatType.XBox_XBX);
             _formats.Add("PC (xen)", PakFormatType.PC);
             _formats.Add("PC (wpc)", PakFormatType.PC_WPC);
+            _formats.Add("PSP (psp)", PakFormatType.PSP);
 
             foreach (string s in _formats.Keys)
                 cboFormatType.Items.Add(s);
@@ -427,6 +428,8 @@ This PAK has no StructItem children so this setting could not be detected.", "St
                     return 11;
                 case PakItemType.Skin:
                     return 11;
+                case PakItemType.nqb:
+                    return 11;
                 default:
                     return 12;
             }
@@ -682,7 +685,7 @@ This PAK has no StructItem children so this setting could not be detected.", "St
                     filename = phi.Filename;
 
                     //System.Diagnostics.Debug.WriteLine(phi.Filename);  //DEBUG FILENAME
-                    if (phi.PakFileType == PakItemType.Qb || phi.PakFileType == PakItemType.Sqb || phi.PakFileType == PakItemType.Midi)
+                    if (phi.PakFileType == PakItemType.Qb || phi.PakFileType == PakItemType.Sqb || phi.PakFileType == PakItemType.Midi || phi.PakFileType == PakItemType.nqb)
                     {
                         //showError("Error", "Only QB files can be tested.");
                         //return;
@@ -829,7 +832,7 @@ This PAK has no StructItem children so this setting could not be detected.", "St
 
             PakHeaderItem phi = (PakHeaderItem)lstPakContents.SelectedItems[0].Tag;
 
-            if (phi.PakFileType != PakItemType.Qb && phi.PakFileType != PakItemType.Sqb && phi.PakFileType != PakItemType.Midi)
+            if (phi.PakFileType != PakItemType.Qb && phi.PakFileType != PakItemType.Sqb && phi.PakFileType != PakItemType.Midi && phi.PakFileType != PakItemType.nqb)
             {
                 showError("Error", "Only QB files can be edited.");
                 return;
@@ -1983,7 +1986,7 @@ This PAK has no StructItem children so this setting could not be detected.", "St
             QbFile qbf;
             foreach (PakHeaderItem phi in _pakFile.Headers.Values)
             {
-                if (phi.PakFileType == PakItemType.Qb || phi.PakFileType == PakItemType.Sqb || phi.PakFileType == PakItemType.Midi)
+                if (phi.PakFileType == PakItemType.Qb || phi.PakFileType == PakItemType.Sqb || phi.PakFileType == PakItemType.Midi || phi.PakFileType == PakItemType.nqb)
                 {
                     qbf = _pakFile.ReadQbFile(phi.Filename, loadDbgQBFile(phi.Filename));
                     searchItems(qbf, qbf.Items, callback);
@@ -2548,7 +2551,7 @@ This PAK has no StructItem children so this setting could not be detected.", "St
                 {
                     saveQbName = string.Format(@"C:\gh3temp\__\{0}", phi.Filename.Replace(@"\", "#"));
 
-                    if (phi.PakFileType == PakItemType.Qb || phi.PakFileType == PakItemType.Sqb || phi.PakFileType == PakItemType.Midi)
+                    if (phi.PakFileType == PakItemType.Qb || phi.PakFileType == PakItemType.Sqb || phi.PakFileType == PakItemType.Midi || phi.PakFileType == PakItemType.nqb)
                     {
                         _pakFile.ExtractFile(phi.Filename, saveQbName);
                         testQbFile(saveQbName);
@@ -2615,8 +2618,18 @@ This PAK has no StructItem children so this setting could not be detected.", "St
 
         private QbItemBase _copyItem;
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            QbKey myQbKey1 = QbKey.Create(refrence_checksum.Text);
+            QbKey myQbKey2 = QbKey.Create(anim_name_checksum.Text);
+            QbKey myQbKey3 = QbKey.Add(myQbKey1, myQbKey2);
+            string mykey_string = myQbKey3.Crc.ToString("X").PadLeft(8, '0').ToUpper();
+            add_output.Text = mykey_string;
+        }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

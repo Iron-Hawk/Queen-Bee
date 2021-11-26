@@ -12,6 +12,7 @@ namespace Nanook.QueenBee.Parser
         XBox = 2,
         XBox_XBX = 3,
         PS2 = 4,
-        PC_WPC = 5
+        PC_WPC = 5,
+        PSP = 6,
     }
 }

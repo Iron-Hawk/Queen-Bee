@@ -41,47 +41,47 @@ namespace Nanook.QueenBee.Parser
 
             //types must be in the same order as the enum
             _types = new uint[,] {
-                   // Wii        PC         XBox       XBox XBX   PS2        PC WPC        //MUST MATCH Pack Format ENUM
-                    { 0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000 }, //Unknown                 
-                    { 0x00200100,0x00200100,0x00200100,0x00010400,0x00010400,0x00010400 }, //SectionInteger          
-                    { 0x00200200,0x00200200,0x00200200,0x00020400,0x00020400,0x00020400 }, //SectionFloat            
-                    { 0x00200300,0x00200300,0x00200300,0x00030400,0x00030400,0x00030400 }, //SectionString           
-                    { 0x00200400,0x00200400,0x00200400,0x00040400,0x00040400,0x00040400 }, //SectionStringW          
-                    { 0x00200500,0x00200500,0x00200500,0x00050400,0x00050400,0x00050400 }, //SectionFloatsX2         
-                    { 0x00200600,0x00200600,0x00200600,0x00060400,0x00060400,0x00060400 }, //SectionFloatsX3         
-                    { 0x00200700,0x00200700,0x00200700,0x00070400,0x00070400,0x00070400 }, //SectionScript           
-                    { 0x00200A00,0x00200A00,0x00200A00,0x000A0400,0x000A0400,0x000A0400 }, //SectionStruct           
-                    { 0x00200C00,0x00200C00,0x00200C00,0x000C0400,0x000C0400,0x000C0400 }, //SectionArray            
-                    { 0x00200D00,0x00200D00,0x00200D00,0x000D0400,0x000D0400,0x000D0400 }, //SectionQbKey            
-                    { 0x00201A00,0x00201A00,0x00201A00,0x00041A00,0x00041A00,0x00041A00 }, //SectionQbKeyString    
-                    { 0x00201B00,0x00201B00,0x00201B00,0x001A0400,0x001A0400,0x001A0400 }, //SectionStringPointer   
-                    { 0x00201C00,0x00201C00,0x00201C00,0x001C0400,0x001C0400,0x001C0400 }, //SectionQbKeyStringQs   
-                    { 0x00010100,0x00010100,0x00010100,0x00010100,0x00010100,0x00010100 }, //ArrayInteger            
-                    { 0x00010200,0x00010200,0x00010200,0x00020100,0x00020100,0x00020100 }, //ArrayFloat              
-                    { 0x00010300,0x00010300,0x00010300,0x00030100,0x00030100,0x00030100 }, //ArrayString             
-                    { 0x00010400,0x00010400,0x00010400,0x00040100,0x00040100,0x00040100 }, //ArrayStringW            
-                    { 0x00010500,0x00010500,0x00010500,0x00050100,0x00050100,0x00050100 }, //ArrayFloatsX2           
-                    { 0x00010600,0x00010600,0x00010600,0x00060100,0x00060100,0x00060100 }, //ArrayFloatsX3           
-                    { 0x00010A00,0x00010A00,0x00010A00,0x000A0100,0x000A0100,0x000A0100 }, //ArrayStruct             
-                    { 0x00010C00,0x00010C00,0x00010C00,0x000C0100,0x000C0100,0x000C0100 }, //ArrayArray              
-                    { 0x00010D00,0x00010D00,0x00010D00,0x000D0100,0x000D0100,0x000D0100 }, //ArrayQbKey              
-                    { 0x00011A00,0x00011A00,0x00011A00,0x001A0100,0x001A0100,0x001A0100 }, //ArrayQbKeyString        
-                    { 0x00011B00,0x00011B00,0x00011B00,0x001B0100,0x001B0100,0x001B0100 }, //ArrayStringPointer        
-                    { 0x00011C00,0x00011C00,0x00011C00,0x001C0100,0x001C0100,0x001C0100 }, //ArrayQbKeyStringQs       
-                    { 0x00810000,0x00810000,0x00810000,0x00000300,0x00000300,0x00000300 }, //StructItemInteger       
-                    { 0x00820000,0x00820000,0x00820000,0x00000500,0x00000500,0x00000500 }, //StructItemFloat         
-                    { 0x00830000,0x00830000,0x00830000,0x00000700,0x00000700,0x00000700 }, //StructItemString        
-                    { 0x00840000,0x00840000,0x00840000,0x00000900,0x00000900,0x00000900 }, //StructItemStringW       
-                    { 0x00850000,0x00850000,0x00850000,0x00000B00,0x00000B00,0x00000B00 }, //StructItemFloatsX2      
-                    { 0x00860000,0x00860000,0x00860000,0x00000D00,0x00000D00,0x00000D00 }, //StructItemFloatsX3      
-                    { 0x008A0000,0x008A0000,0x008A0000,0x00001500,0x00001500,0x00001500 }, //StructItemStruct        
-                    { 0x008C0000,0x008C0000,0x008C0000,0x00001900,0x00001900,0x00001900 }, //StructItemArray         
-                    { 0x008D0000,0x008D0000,0x008D0000,0x00001B00,0x00001B00,0x00001B00 }, //StructItemQbKey         
-                    { 0x009A0000,0x009A0000,0x009A0000,0x00003500,0x00003500,0x00003500 }, //StructItemQbKeyString   
-                    { 0x009B0000,0x009B0000,0x009B0000,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF }, //StructItemStringPointer 
-                    { 0x009C0000,0x009C0000,0x009C0000,0xFFFFFFFF,0x001A0400,0xFFFFFFFF }, //StructItemQbKeyStringQs
-                    { 0x00010000,0x00010000,0x00010000,0x00000100,0x00000100,0x00000100 }, //Floats                  
-                    { 0x00000100,0x00000100,0x00000100,0x00010000,0x00010000,0x00010000 }  //StructHeader            
+                   // Wii        PC         XBox       XBox XBX   PS2        PC WPC     PSP    //MUST MATCH Pack Format ENUM
+                    { 0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000}, //Unknown                 
+                    { 0x00200100,0x00200100,0x00200100,0x00010400,0x00010400,0x00010400,0x00010400 }, //SectionInteger          
+                    { 0x00200200,0x00200200,0x00200200,0x00020400,0x00020400,0x00020400,0x00020400 }, //SectionFloat            
+                    { 0x00200300,0x00200300,0x00200300,0x00030400,0x00030400,0x00030400,0x00030400 }, //SectionString           
+                    { 0x00200400,0x00200400,0x00200400,0x00040400,0x00040400,0x00040400,0x00040400 }, //SectionStringW          
+                    { 0x00200500,0x00200500,0x00200500,0x00050400,0x00050400,0x00050400,0x00050400 }, //SectionFloatsX2         
+                    { 0x00200600,0x00200600,0x00200600,0x00060400,0x00060400,0x00060400,0x00060400 }, //SectionFloatsX3         
+                    { 0x00200700,0x00200700,0x00200700,0x00070400,0x00070400,0x00070400,0x00070400 }, //SectionScript           
+                    { 0x00200A00,0x00200A00,0x00200A00,0x000A0400,0x000A0400,0x000A0400,0x000A0400 }, //SectionStruct           
+                    { 0x00200C00,0x00200C00,0x00200C00,0x000C0400,0x000C0400,0x000C0400,0x000C0400 }, //SectionArray            
+                    { 0x00200D00,0x00200D00,0x00200D00,0x000D0400,0x000D0400,0x000D0400,0x000D0400 }, //SectionQbKey            
+                    { 0x00201A00,0x00201A00,0x00201A00,0x00041A00,0x00041A00,0x00041A00,0x00041A00 }, //SectionQbKeyString    
+                    { 0x00201B00,0x00201B00,0x00201B00,0x001A0400,0x001A0400,0x001A0400,0x001A0400 }, //SectionStringPointer   
+                    { 0x00201C00,0x00201C00,0x00201C00,0x001C0400,0x001C0400,0x001C0400,0x001C0400 }, //SectionQbKeyStringQs   
+                    { 0x00010100,0x00010100,0x00010100,0x00010100,0x00010100,0x00010100,0x00010100 }, //ArrayInteger            
+                    { 0x00010200,0x00010200,0x00010200,0x00020100,0x00020100,0x00020100,0x00020100 }, //ArrayFloat              
+                    { 0x00010300,0x00010300,0x00010300,0x00030100,0x00030100,0x00030100,0x00030100 }, //ArrayString             
+                    { 0x00010400,0x00010400,0x00010400,0x00040100,0x00040100,0x00040100,0x00040100 }, //ArrayStringW            
+                    { 0x00010500,0x00010500,0x00010500,0x00050100,0x00050100,0x00050100,0x00050100 }, //ArrayFloatsX2           
+                    { 0x00010600,0x00010600,0x00010600,0x00060100,0x00060100,0x00060100,0x00060100 }, //ArrayFloatsX3           
+                    { 0x00010A00,0x00010A00,0x00010A00,0x000A0100,0x000A0100,0x000A0100,0x000A0100 }, //ArrayStruct             
+                    { 0x00010C00,0x00010C00,0x00010C00,0x000C0100,0x000C0100,0x000C0100,0x000C0100 }, //ArrayArray              
+                    { 0x00010D00,0x00010D00,0x00010D00,0x000D0100,0x000D0100,0x000D0100,0x000D0100 }, //ArrayQbKey              
+                    { 0x00011A00,0x00011A00,0x00011A00,0x001A0100,0x001A0100,0x001A0100,0x001A0100 }, //ArrayQbKeyString        
+                    { 0x00011B00,0x00011B00,0x00011B00,0x001B0100,0x001B0100,0x001B0100,0x001B0100 }, //ArrayStringPointer        
+                    { 0x00011C00,0x00011C00,0x00011C00,0x001C0100,0x001C0100,0x001C0100,0x001C0100 }, //ArrayQbKeyStringQs       
+                    { 0x00810000,0x00810000,0x00810000,0x00000300,0x00000300,0x00000300,0x00000300 }, //StructItemInteger       
+                    { 0x00820000,0x00820000,0x00820000,0x00000500,0x00000500,0x00000500,0x00000500 }, //StructItemFloat         
+                    { 0x00830000,0x00830000,0x00830000,0x00000700,0x00000700,0x00000700,0x00000700 }, //StructItemString        
+                    { 0x00840000,0x00840000,0x00840000,0x00000900,0x00000900,0x00000900,0x00000900 }, //StructItemStringW       
+                    { 0x00850000,0x00850000,0x00850000,0x00000B00,0x00000B00,0x00000B00,0x00000B00 }, //StructItemFloatsX2      
+                    { 0x00860000,0x00860000,0x00860000,0x00000D00,0x00000D00,0x00000D00,0x00000D00 }, //StructItemFloatsX3      
+                    { 0x008A0000,0x008A0000,0x008A0000,0x00001500,0x00001500,0x00001500,0x00001500 }, //StructItemStruct        
+                    { 0x008C0000,0x008C0000,0x008C0000,0x00001900,0x00001900,0x00001900,0x00001900 }, //StructItemArray         
+                    { 0x008D0000,0x008D0000,0x008D0000,0x00001B00,0x00001B00,0x00001B00,0x00001B00 }, //StructItemQbKey         
+                    { 0x009A0000,0x009A0000,0x009A0000,0x00003500,0x00003500,0x00003500,0x00003500 }, //StructItemQbKeyString   
+                    { 0x009B0000,0x009B0000,0x009B0000,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF }, //StructItemStringPointer 
+                    { 0x009C0000,0x009C0000,0x009C0000,0xFFFFFFFF,0x001A0400,0xFFFFFFFF,0x001A0400 }, //StructItemQbKeyStringQs
+                    { 0x00010000,0x00010000,0x00010000,0x00000100,0x00000100,0x00000100,0x00000100 }, //Floats                  
+                    { 0x00000100,0x00000100,0x00000100,0x00010000,0x00010000,0x00010000,0x00010000 }  //StructHeader            
             };
 
         }
@@ -154,6 +154,15 @@ namespace Nanook.QueenBee.Parser
                     LastHeaderLength = 48;
                     IsCompressed = false;
                     FilePadSize = 0x20;
+                    break;
+                case PakFormatType.PSP:
+                    FriendlyName = "PSP";
+                    EndianType = EndianType.Little;
+                    FileExtension = "psp";
+                    QbDebugExtension = "dbg";
+                    LastHeaderLength = 48;
+                    IsCompressed = false;
+                    FilePadSize = 0x10;
                     break;
                 default:
                     break;

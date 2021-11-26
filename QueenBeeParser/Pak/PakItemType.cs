@@ -14,6 +14,7 @@ namespace Nanook.QueenBee.Parser
         Midi,
         Texture,
         Skin,
+        nqb,
         Other
     }
 }

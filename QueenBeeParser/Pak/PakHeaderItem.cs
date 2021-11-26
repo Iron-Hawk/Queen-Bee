@@ -13,10 +13,10 @@ namespace Nanook.QueenBee.Parser
 
         static PakHeaderItem()
         {                             // qb,     qb,    debug,   image,  midi
-            string[] s = new string[] { ".qb",  ".sqb", ".dbg",  ".img",  ".mqb", ".tex", ".skin", ".cam", ".col",  ".fam",  ".fnc",   ".fnt", ".fnv", ".gap",
-                                        ".hkc", ".imv", ".last", ".mcol", ".mdl", ".mdv", ".nav",  ".nqb", ".oba",  ".pfx",  ".pimg",  ".png", ".rag", ".rnb",
+            string[] s = new string[] { ".qb",  ".sqb", ".dbg",  ".img",  ".mqb", ".tex", ".skin", ".nqb", ".geom", ".col", ".cam", ".fam",  ".fnc",   ".fnt", ".fnv", ".gap",
+                                        ".hkc", ".imv", ".last", ".mcol", ".mdl", ".mdv", ".nav",  ".oba",  ".pfx",  ".pimg",  ".png", ".rag", ".rnb",
                                         ".rnb_lvl", ".rnb_mdl",  ".scn",  ".scv", ".shd", ".ska",  ".ske", ".skiv", ".stex", ".table", ".tvx", ".wav", ".empty",
-                                         ".clt", ".jam",".note", ".nqb",  ".perf",".pimv",".qs",   ".qs.br" ,".qs.de",".qs.en",".qs.es",".qs.fr",".qs.it",
+                                         ".clt", ".jam",".note", ".perf",".pimv",".qs",   ".qs.br" ,".qs.de",".qs.en",".qs.es",".qs.fr",".qs.it",
                                          ".raw" ,".rgn",".trkobj",".xml"};
 
             _itemTypes = new QbKey[s.Length];
@@ -47,6 +47,8 @@ namespace Nanook.QueenBee.Parser
                     return _itemTypes[5];
                 case PakItemType.Skin:
                     return _itemTypes[6];
+                case PakItemType.nqb:
+                    return _itemTypes[7];
                 default:
                     return null;
             }
@@ -73,6 +75,8 @@ namespace Nanook.QueenBee.Parser
                 return PakItemType.Texture;
             else if (fileType == _itemTypes[6].Crc) //.skin
                 return PakItemType.Skin;
+            else if (fileType == _itemTypes[7].Crc) //.skin
+                return PakItemType.nqb;
             else
                 return PakItemType.Other;
 

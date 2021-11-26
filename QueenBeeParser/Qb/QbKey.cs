@@ -105,6 +105,15 @@ namespace Nanook.QueenBee.Parser
             return qb;
         }
 
+        public static QbKey Add(QbKey myQbKey, QbKey myQbKey2)
+        {
+            //dynamic dx = myQbKey.Crc, dy = myQbKey2.Crc;
+            uint ass = myQbKey.Crc;
+            uint ass2 = myQbKey2.Crc;
+            uint ass3 = ass + ass2;
+            return new QbKey(ass3, ("text"));
+        }
+
 
         public uint Crc
         {

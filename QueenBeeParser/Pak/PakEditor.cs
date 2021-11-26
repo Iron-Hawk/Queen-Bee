@@ -33,7 +33,7 @@ namespace Nanook.QueenBee.Parser
                 {
                     foreach (PakHeaderItem phi in _pakHeaders.Values)
                     {
-                        if (phi.PakFileType == PakItemType.Qb || phi.PakFileType == PakItemType.Sqb || phi.PakFileType == PakItemType.Midi)
+                        if (phi.PakFileType == PakItemType.Qb || phi.PakFileType == PakItemType.Sqb || phi.PakFileType == PakItemType.Midi || phi.PakFileType == PakItemType.nqb)
                         {
                             QbFile qbf = this.ReadQbFile(phi.Filename); //set the _pakformat.StructItemChildrenType item
                             if (_pakFormat.StructItemChildrenType != Nanook.QueenBee.Parser.StructItemChildrenType.NotSet)
@@ -531,7 +531,7 @@ namespace Nanook.QueenBee.Parser
 
             _pakHeaders = p;
 
-            if (phi.PakFileType == PakItemType.Qb || phi.PakFileType == PakItemType.Sqb || phi.PakFileType == PakItemType.Midi)
+            if (phi.PakFileType == PakItemType.Qb || phi.PakFileType == PakItemType.Sqb || phi.PakFileType == PakItemType.Midi || phi.PakFileType == PakItemType.nqb)
             {
                 try
                 {

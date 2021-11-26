@@ -1,0 +1,11 @@
+C:\Users\Johnathan Mitchell\source\repos\Queen-Bee-master\QueenBeeParser\bin\Debug\QueenBeeParser.dll
+C:\Users\Johnathan Mitchell\source\repos\Queen-Bee-master\QueenBeeParser\bin\Debug\QueenBeeParser.pdb
+C:\Users\Johnathan Mitchell\source\repos\Queen-Bee-master\QueenBeeParser\obj\Debug\QueenBeeParser.csprojAssemblyReference.cache
+C:\Users\Johnathan Mitchell\source\repos\Queen-Bee-master\QueenBeeParser\obj\Debug\QueenBeeParser.dll
+C:\Users\Johnathan Mitchell\source\repos\Queen-Bee-master\QueenBeeParser\obj\Debug\QueenBeeParser.pdb
+C:\Users\Johnathan\source\repos\Queen-Bee-master\QueenBeeParser\bin\Debug\QueenBeeParser.dll
+C:\Users\Johnathan\source\repos\Queen-Bee-master\QueenBeeParser\bin\Debug\QueenBeeParser.pdb
+C:\Users\Johnathan\source\repos\Queen-Bee-master\QueenBeeParser\obj\Debug\QueenBeeParser.csprojAssemblyReference.cache
+C:\Users\Johnathan\source\repos\Queen-Bee-master\QueenBeeParser\obj\Debug\QueenBeeParser.dll
+C:\Users\Johnathan\source\repos\Queen-Bee-master\QueenBeeParser\obj\Debug\QueenBeeParser.pdb
+C:\Users\Johnathan\source\repos\Queen-Bee-master\QueenBeeParser\obj\Debug\QueenBeeParser.csproj.CoreCompileInputs.cache
